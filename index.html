@@ -3,94 +3,385 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DQT Flow</title>
-<meta name="description" content="DQT Flow - Nền tảng công nghệ, nội dung và tự động hóa">
+
+<title>DQT Flow | Công nghệ - Nội dung - AI</title>
+
+<meta name="description" content="DQT Flow - Hệ sinh thái công nghệ, AI, tự động hóa và nội dung số.">
+
 <style>
-*{box-sizing:border-box}
-body{
+*{
+    box-sizing:border-box;
     margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
     font-family:Arial,Helvetica,sans-serif;
-    background:#f5f7fb;
     color:#172033;
+    background:#f6f8fc;
+    line-height:1.6;
 }
+
+a{
+    text-decoration:none;
+}
+
+/* HEADER */
 header{
-    background:#ffffff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(10px);
     border-bottom:1px solid #e5e7eb;
-    padding:18px 7%;
+}
+
+.header-inner{
+    max-width:1200px;
+    margin:auto;
+    padding:18px 24px;
     display:flex;
-    justify-content:space-between;
     align-items:center;
+    justify-content:space-between;
 }
+
 .logo{
-    font-size:26px;
-    font-weight:700;
+    font-size:27px;
+    font-weight:800;
     color:#2563eb;
+    letter-spacing:-.5px;
 }
+
+nav{
+    display:flex;
+    gap:28px;
+}
+
 nav a{
-    margin-left:24px;
-    text-decoration:none;
     color:#374151;
-}
-.hero{
-    padding:90px 7%;
-    text-align:center;
-    background:linear-gradient(135deg,#eef4ff,#ffffff);
-}
-.hero h1{
-    font-size:52px;
-    margin:0 0 20px;
-}
-.hero h1 span{color:#2563eb}
-.hero p{
-    max-width:700px;
-    margin:0 auto 30px;
-    font-size:19px;
-    line-height:1.7;
-    color:#5b6472;
-}
-.button{
-    display:inline-block;
-    background:#2563eb;
-    color:white;
-    padding:14px 28px;
-    border-radius:10px;
-    text-decoration:none;
+    font-size:15px;
     font-weight:600;
 }
-.section{
-    padding:65px 7%;
+
+nav a:hover{
+    color:#2563eb;
+}
+
+/* HERO */
+.hero{
+    position:relative;
+    overflow:hidden;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(37,99,235,.12),transparent 30%),
+        radial-gradient(circle at 80% 30%,rgba(99,102,241,.10),transparent 30%),
+        linear-gradient(135deg,#eef4ff,#ffffff);
+    padding:110px 24px 100px;
     text-align:center;
 }
-.section h2{
-    font-size:32px;
-    margin-bottom:35px;
-}
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:22px;
-    max-width:1100px;
+
+.hero-content{
+    max-width:900px;
     margin:auto;
 }
+
+.badge{
+    display:inline-block;
+    padding:8px 16px;
+    border-radius:30px;
+    background:#e8f0ff;
+    color:#2563eb;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:22px;
+}
+
+.hero h1{
+    font-size:clamp(40px,7vw,68px);
+    line-height:1.1;
+    letter-spacing:-2px;
+    margin-bottom:24px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    max-width:720px;
+    margin:0 auto 34px;
+    color:#5b6472;
+    font-size:19px;
+}
+
+.button{
+    display:inline-block;
+    padding:15px 28px;
+    border-radius:12px;
+    background:#2563eb;
+    color:white;
+    font-weight:700;
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+    transition:.2s;
+}
+
+.button:hover{
+    transform:translateY(-2px);
+    background:#1d4ed8;
+}
+
+/* COMMON */
+.section{
+    max-width:1200px;
+    margin:auto;
+    padding:85px 24px;
+}
+
+.section-header{
+    text-align:center;
+    max-width:750px;
+    margin:0 auto 45px;
+}
+
+.section-header h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.section-header p{
+    color:#667085;
+}
+
+/* INTRO */
+.intro{
+    background:white;
+}
+
+.intro-box{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.intro-box h2{
+    font-size:36px;
+    margin-bottom:18px;
+}
+
+.intro-box p{
+    color:#667085;
+    font-size:17px;
+}
+
+/* ECOSYSTEM */
+.ecosystem{
+    background:#f6f8fc;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:22px;
+}
+
 .card{
     background:white;
     padding:30px 24px;
-    border-radius:16px;
-    box-shadow:0 5px 20px rgba(0,0,0,.06);
+    border-radius:20px;
+    border:1px solid #e7eaf0;
+    box-shadow:0 8px 30px rgba(15,23,42,.05);
+    transition:.25s;
 }
-.card h3{
-    margin-top:0;
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(15,23,42,.10);
+}
+
+.icon{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:#eaf1ff;
     color:#2563eb;
+    font-size:24px;
+    margin-bottom:20px;
 }
+
+.card h3{
+    margin-bottom:10px;
+    font-size:20px;
+}
+
 .card p{
-    line-height:1.6;
     color:#667085;
+    font-size:15px;
 }
-footer{
-    padding:30px;
+
+/* MEDIA */
+.media{
+    background:white;
+}
+
+.media-box{
+    background:linear-gradient(135deg,#111827,#1e3a8a);
+    color:white;
+    border-radius:26px;
+    padding:55px 40px;
     text-align:center;
+}
+
+.media-box h2{
+    font-size:36px;
+    margin-bottom:15px;
+}
+
+.media-box p{
+    max-width:700px;
+    margin:0 auto 28px;
+    color:#dbe4ff;
+}
+
+.media-button{
+    display:inline-block;
+    padding:13px 24px;
+    border:1px solid rgba(255,255,255,.35);
+    border-radius:10px;
+    color:white;
+    font-weight:700;
+}
+
+/* FUTURE */
+.future{
+    text-align:center;
+}
+
+.future-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.future-item{
+    padding:28px;
+    background:#fff;
+    border-radius:18px;
+    border:1px solid #e7eaf0;
+}
+
+.future-item h3{
+    margin-bottom:10px;
+}
+
+.future-item p{
+    color:#667085;
+    font-size:15px;
+}
+
+/* FOOTER */
+footer{
     background:#111827;
-    color:#d1d5db;
+    color:#cbd5e1;
+    padding:45px 24px;
+}
+
+.footer-inner{
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.footer-logo{
+    color:white;
+    font-size:22px;
+    font-weight:800;
+    margin-bottom:8px;
+}
+
+.footer-links{
+    display:flex;
+    gap:20px;
+}
+
+.footer-links a{
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+.copyright{
+    margin-top:30px;
+    padding-top:20px;
+    border-top:1px solid #374151;
+    text-align:center;
+    font-size:13px;
+    color:#94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+    .cards{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .future-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:650px){
+    .header-inner{
+        padding:15px 18px;
+    }
+
+    nav{
+        gap:12px;
+    }
+
+    nav a{
+        font-size:13px;
+    }
+
+    .hero{
+        padding:80px 20px;
+    }
+
+    .hero p{
+        font-size:17px;
+    }
+
+    .section{
+        padding:65px 20px;
+    }
+
+    .section-header h2,
+    .intro-box h2,
+    .media-box h2{
+        font-size:29px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .media-box{
+        padding:40px 24px;
+    }
+
+    .footer-inner{
+        flex-direction:column;
+    }
+
+    .footer-links{
+        flex-wrap:wrap;
+    }
 }
 </style>
 </head>
@@ -98,73 +389,238 @@ footer{
 <body>
 
 <header>
-    <div class="logo">DQT Flow</div>
-    <nav>
-        <a href="#">Trang chủ</a>
-        <a href="#about">Giới thiệu</a>
-        <a href="#services">Hệ sinh thái</a>
-    </nav>
+    <div class="header-inner">
+        <a class="logo" href="#">DQT Flow</a>
+
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#gioi-thieu">Giới thiệu</a>
+            <a href="#he-sinh-thai">Hệ sinh thái</a>
+            <a href="#media">DQT Media</a>
+        </nav>
+    </div>
 </header>
 
 <section class="hero">
-    <h1>Chào mừng đến với <span>DQT Flow</span></h1>
-    <p>
-        Nền tảng kết nối công nghệ, nội dung số,
-        tự động hóa và các giải pháp phục vụ công việc trong thời đại AI.
-    </p>
-    <a class="button" href="#services">Khám phá DQT Flow</a>
+    <div class="hero-content">
+
+        <div class="badge">
+            DQT DIGITAL ECOSYSTEM
+        </div>
+
+        <h1>
+            Kết nối công nghệ.<br>
+            Tạo nên <span>Dòng chảy số.</span>
+        </h1>
+
+        <p>
+            DQT Flow là nền tảng định hướng kết nối
+            công nghệ, AI, tự động hóa, dữ liệu và nội dung số
+            trong một hệ sinh thái có khả năng mở rộng.
+        </p>
+
+        <a class="button" href="#he-sinh-thai">
+            Khám phá DQT Flow
+        </a>
+
+    </div>
 </section>
 
-<section class="section" id="about">
-    <h2>DQT Flow là gì?</h2>
-    <p>
-        DQT Flow hướng tới xây dựng một hệ sinh thái số
-        đơn giản, hiệu quả và có khả năng mở rộng theo nhu cầu thực tế.
-    </p>
+<section class="intro" id="gioi-thieu">
+    <div class="section">
+
+        <div class="intro-box">
+
+            <h2>DQT Flow là gì?</h2>
+
+            <p>
+                DQT Flow hướng tới xây dựng một hệ sinh thái số
+                đơn giản, hiệu quả và có khả năng phát triển theo
+                nhu cầu thực tế. Công nghệ, AI, nội dung và tự động hóa
+                được kết nối thành một dòng chảy thống nhất.
+            </p>
+
+        </div>
+
+    </div>
 </section>
 
-<section class="section" id="services">
-    <h2>Hệ sinh thái DQT Flow</h2>
+<section class="ecosystem" id="he-sinh-thai">
+    <div class="section">
 
-    <div class="cards">
+        <div class="section-header">
 
-        <div class="card">
-            <h3>AI & Automation</h3>
+            <h2>Hệ sinh thái DQT Flow</h2>
+
             <p>
-                Ứng dụng AI và tự động hóa để giảm công việc thủ công
-                và nâng cao hiệu quả.
+                Bốn nền tảng cốt lõi tạo nên hệ sinh thái DQT.
             </p>
+
         </div>
 
-        <div class="card">
-            <h3>Digital Content</h3>
-            <p>
-                Xây dựng và phát triển nội dung trên website,
-                Facebook, YouTube và TikTok.
-            </p>
+        <div class="cards">
+
+            <div class="card">
+
+                <div class="icon">AI</div>
+
+                <h3>AI & Automation</h3>
+
+                <p>
+                    Ứng dụng trí tuệ nhân tạo và tự động hóa
+                    để hỗ trợ công việc, xử lý dữ liệu và xây dựng
+                    các quy trình thông minh.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">✦</div>
+
+                <h3>Digital Content</h3>
+
+                <p>
+                    Xây dựng nội dung số trên website,
+                    Facebook, YouTube, TikTok và các nền tảng
+                    truyền thông khác.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">⌘</div>
+
+                <h3>Dữ liệu & Công nghệ</h3>
+
+                <p>
+                    Từng bước xây dựng hệ thống dữ liệu,
+                    công cụ và nền tảng công nghệ phục vụ
+                    công việc và phát triển dài hạn.
+                </p>
+
+            </div>
+
+            <div class="card">
+
+                <div class="icon">D</div>
+
+                <h3>DQT Media</h3>
+
+                <p>
+                    Phát triển hệ thống truyền thông và nội dung
+                    đa nền tảng trong hệ sinh thái DQT.
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="card">
-            <h3>Dữ liệu & Công nghệ</h3>
+    </div>
+</section>
+
+<section class="media" id="media">
+    <div class="section">
+
+        <div class="media-box">
+
+            <h2>DQT Media</h2>
+
             <p>
-                Từng bước xây dựng hệ thống dữ liệu,
-                công cụ và nền tảng phục vụ công việc.
+                Một nhánh nội dung trong hệ sinh thái DQT,
+                hướng tới xây dựng website, Facebook, YouTube
+                và TikTok thành một hệ thống nội dung thống nhất.
             </p>
+
+            <a class="media-button" href="#">
+                Khám phá DQT Media
+            </a>
+
         </div>
 
-        <div class="card">
-            <h3>DQT Media</h3>
+    </div>
+</section>
+
+<section class="future">
+    <div class="section">
+
+        <div class="section-header">
+
+            <h2>Định hướng phát triển</h2>
+
             <p>
-                Phát triển hệ thống truyền thông và nội dung số
-                trong hệ sinh thái DQT.
+                DQT Flow được xây dựng theo từng giai đoạn,
+                ưu tiên tính thực tế và khả năng mở rộng.
             </p>
+
+        </div>
+
+        <div class="future-grid">
+
+            <div class="future-item">
+
+                <h3>01 · Nội dung</h3>
+
+                <p>
+                    Xây dựng hệ thống nội dung đa nền tảng
+                    và kết nối người dùng.
+                </p>
+
+            </div>
+
+            <div class="future-item">
+
+                <h3>02 · Tự động hóa</h3>
+
+                <p>
+                    Từng bước đưa AI và tự động hóa vào
+                    các quy trình phù hợp.
+                </p>
+
+            </div>
+
+            <div class="future-item">
+
+                <h3>03 · Hệ sinh thái</h3>
+
+                <p>
+                    Mở rộng các sản phẩm, dịch vụ và nền tảng
+                    trong hệ sinh thái DQT.
+                </p>
+
+            </div>
+
         </div>
 
     </div>
 </section>
 
 <footer>
-    © 2026 DQT Flow · dqtflow.com
+
+    <div class="footer-inner">
+
+        <div>
+            <div class="footer-logo">DQT Flow</div>
+
+            <div>
+                Công nghệ · AI · Nội dung · Tự động hóa
+            </div>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Trang chủ</a>
+            <a href="#gioi-thieu">Giới thiệu</a>
+            <a href="#he-sinh-thai">Hệ sinh thái</a>
+            <a href="#media">DQT Media</a>
+        </div>
+
+    </div>
+
+    <div class="copyright">
+        © 2026 DQT Flow · dqtflow.com
+    </div>
+
 </footer>
 
 </body>
