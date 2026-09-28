@@ -249,9 +249,10 @@ async function loadDQTPosts() {
   const box = document.getElementById("dqt-posts-list");
 
   try {
-    const response = await fetch(
-      "https://api.github.com/repos/dqtflow/dqtflow.github.io/contents/posts"
-    );
+const response = await fetch(
+  "https://api.github.com/repos/dqtflow/dqtflow.github.io/contents/posts?ts=" + Date.now(),
+  { cache: "no-store" }
+);
 
     const files = await response.json();
 
@@ -263,11 +264,11 @@ async function loadDQTPosts() {
       box.innerHTML = "<p>Chưa có bài viết.</p>";
       return;
     }
-
-    const posts = await Promise.all(
-      mdFiles.map(async file => {
-        const res = await fetch(file.download_url);
-        const text = await res.text();
+const res = await fetch(
+  file.download_url + "?ts=" + Date.now(),
+  { cache: "no-store" }
+);
+const text = await res.text();
 
         const title =
           (text.match(/^#\s+(.+)$/m) || [,""])[1] ||
