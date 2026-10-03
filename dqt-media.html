@@ -1,827 +1,929 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>DQT Media | DQT Flow</title>
+<title>DQT Media | DQT Flow</title>
 
-  <meta
-    name="description"
-    content="DQT Media - Hệ thống truyền thông và nội dung số trong hệ sinh thái DQT Flow."
-  >
+<meta name="description"
+      content="DQT Media - Hệ thống truyền thông và nội dung số trong hệ sinh thái DQT Flow.">
 
-  <meta name="theme-color" content="#2563eb">
+<style>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:Arial,Helvetica,sans-serif;
+    background:#f7f9fc;
+    color:#172033;
+}
+
+header{
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    padding:18px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:26px;
+    font-weight:700;
+    color:#2563eb;
+}
+
+nav a{
+    margin-left:24px;
+    text-decoration:none;
+    color:#374151;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+.hero{
+    text-align:center;
+    padding:90px 20px;
+    background:linear-gradient(135deg,#eef4ff,#ffffff);
+}
+
+.hero h1{
+    font-size:48px;
+    margin:0 0 20px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    max-width:760px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.7;
+    color:#5b6475;
+}
+
+.section{
+    max-width:1100px;
+    margin:auto;
+    padding:70px 20px;
+}
+
+.section h2{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.section-intro{
+    text-align:center;
+    color:#6b7280;
+    margin-bottom:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+}
+
+.card{
+    background:#fff;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.card h3{
+    margin-top:0;
+    color:#2563eb;
+}
+
+.card p{
+    line-height:1.7;
+    color:#5b6475;
+}
+
+.post-code{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.button{
+    display:inline-block;
+    padding:14px 26px;
+    border-radius:8px;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    border:none;
+    cursor:pointer;
+}
+
+.button:hover{
+    background:#1d4ed8;
+}
+
+.back-button{
+    display:inline-block;
+    margin-bottom:30px;
+    padding:12px 22px;
+    border-radius:8px;
+    background:#e5edff;
+    color:#2563eb;
+    text-decoration:none;
+}
+
+.article{
+    max-width:850px;
+    margin:0 auto;
+    background:#fff;
+    padding:45px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.article h1{
+    font-size:38px;
+    margin-top:0;
+    color:#172033;
+}
+
+.article-meta{
+    padding:18px 0;
+    margin:20px 0 30px;
+    border-top:1px solid #e5e7eb;
+    border-bottom:1px solid #e5e7eb;
+    color:#6b7280;
+    line-height:1.8;
+}
+
+.article-content{
+    font-size:18px;
+    line-height:1.85;
+    color:#374151;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3{
+    color:#172033;
+    margin-top:32px;
+}
+
+.article-content p{
+    margin:16px 0;
+}
+
+.article-content strong{
+    color:#172033;
+}
+
+.article-content ul{
+    padding-left:25px;
+}
+
+.article-content li{
+    margin-bottom:8px;
+}
+
+.article-footer{
+    margin-top:40px;
+    padding-top:25px;
+    border-top:1px solid #e5e7eb;
+}
+
+.cta{
+    text-align:center;
+    padding:70px 20px;
+    background:#172554;
+    color:#fff;
+}
+
+.cta h2{
+    font-size:34px;
+}
+
+.cta p{
+    max-width:700px;
+    margin:20px auto 30px;
+    line-height:1.7;
+}
+
+footer{
+    text-align:center;
+    padding:25px;
+    background:#fff;
+    color:#6b7280;
+}
+
+.loading{
+    text-align:center;
+    padding:40px;
+    color:#6b7280;
+}
+
+.error{
+    text-align:center;
+    padding:40px;
+    color:#dc2626;
+}
+
+@media(max-width:800px){
+
+    .cards{
+        grid-template-columns:1fr;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .hero h1{
+        font-size:36px;
     }
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #172033;
-      line-height: 1.6;
+    header{
+        flex-direction:column;
+        gap:15px;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    nav a{
+        margin:0 8px;
     }
 
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: auto;
+    .article{
+        padding:25px;
     }
 
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e5e7eb;
+    .article h1{
+        font-size:30px;
     }
 
-    .nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
+    .article-content{
+        font-size:16px;
     }
+}
 
-    .logo {
-      font-size: 23px;
-      font-weight: 800;
-      color: #2563eb;
-      letter-spacing: -0.5px;
-      white-space: nowrap;
-    }
-
-    .logo span {
-      color: #111827;
-    }
-
-    .menu {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-    }
-
-    .menu a {
-      color: #475569;
-      font-size: 15px;
-      font-weight: 600;
-      transition: 0.2s;
-    }
-
-    .menu a:hover {
-      color: #2563eb;
-    }
-
-    /* HERO */
-
-    .hero {
-      margin-top: 35px;
-      padding: 80px 30px;
-      text-align: center;
-      border-radius: 28px;
-      background: linear-gradient(
-        135deg,
-        #1d4ed8,
-        #2563eb 55%,
-        #0f172a
-      );
-      color: white;
-      box-shadow: 0 20px 50px rgba(37,99,235,0.20);
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 7px 15px;
-      margin-bottom: 18px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.20);
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 6vw, 58px);
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: #bfdbfe;
-    }
-
-    .hero p {
-      max-width: 760px;
-      margin: auto;
-      color: rgba(255,255,255,0.88);
-      font-size: 17px;
-    }
-
-    .hero-button {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 13px 25px;
-      border-radius: 10px;
-      background: white;
-      color: #1d4ed8;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .hero-button:hover {
-      transform: translateY(-2px);
-    }
-
-    /* SECTION */
-
-    .section {
-      padding: 70px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 800px;
-      margin: auto auto 35px;
-    }
-
-    .section-heading h2 {
-      font-size: clamp(28px, 4vw, 40px);
-      margin-bottom: 10px;
-    }
-
-    .section-heading p {
-      color: #64748b;
-      font-size: 16px;
-    }
-
-    /* CARDS */
-
-    .posts-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 24px;
-    }
-
-    .post-card {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 8px 25px rgba(15,23,42,0.06);
-      transition: 0.25s;
-    }
-
-    .post-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 18px 35px rgba(15,23,42,0.10);
-    }
-
-    .post-code {
-      display: inline-block;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #2563eb;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 14px;
-    }
-
-    .post-card h3 {
-      font-size: 21px;
-      margin-bottom: 13px;
-      color: #111827;
-    }
-
-    .post-info {
-      margin-bottom: 7px;
-      color: #64748b;
-      font-size: 14px;
-    }
-
-    .post-info strong {
-      color: #334155;
-    }
-
-    .post-button {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 10px 17px;
-      border-radius: 9px;
-      background: #2563eb;
-      color: white;
-      font-size: 14px;
-      font-weight: 700;
-      transition: 0.2s;
-    }
-
-    .post-button:hover {
-      background: #1d4ed8;
-      transform: translateY(-2px);
-    }
-
-    /* MESSAGE */
-
-    .message {
-      text-align: center;
-      padding: 35px 20px;
-      border-radius: 16px;
-      background: white;
-      border: 1px solid #e5e7eb;
-      color: #64748b;
-    }
-
-    .loading {
-      text-align: center;
-      padding: 40px;
-      color: #64748b;
-    }
-
-    .error {
-      text-align: center;
-      padding: 35px 20px;
-      border-radius: 16px;
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      color: #9a3412;
-    }
-
-    /* ABOUT */
-
-    .about-box {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 20px;
-      padding: 35px;
-      text-align: center;
-      box-shadow: 0 8px 25px rgba(15,23,42,0.05);
-    }
-
-    .about-box h2 {
-      margin-bottom: 15px;
-    }
-
-    .about-box p {
-      max-width: 760px;
-      margin: auto;
-      color: #64748b;
-    }
-
-    /* FOOTER */
-
-    footer {
-      margin-top: 30px;
-      padding: 35px 20px;
-      text-align: center;
-      background: #0f172a;
-      color: #94a3b8;
-    }
-
-    footer strong {
-      color: white;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 850px) {
-      .posts-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .menu {
-        gap: 14px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        width: min(100% - 24px, 1120px);
-      }
-
-      .nav {
-        min-height: 65px;
-      }
-
-      .logo {
-        font-size: 19px;
-      }
-
-      .menu {
-        display: none;
-      }
-
-      .hero {
-        margin-top: 18px;
-        padding: 55px 20px;
-        border-radius: 20px;
-      }
-
-      .posts-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section {
-        padding: 50px 0;
-      }
-    }
-  </style>
+</style>
 </head>
+
 
 <body>
 
-  <!-- HEADER -->
+<header>
 
-  <header>
-    <div class="container nav">
+    <div class="logo">
+        DQT Media
+    </div>
 
-      <a href="#" class="logo">
+    <nav>
+        <a href="index.html">Trang chủ</a>
+        <a href="dqt-media.html">Bài viết</a>
+        <a href="gioi-thieu.html">Giới thiệu</a>
+    </nav>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>
         DQT <span>Media</span>
-      </a>
-
-      <nav class="menu">
-        <a href="#trang-chu">Trang chủ</a>
-        <a href="#bai-viet">Bài viết</a>
-        <a href="#gioi-thieu">Giới thiệu</a>
-      </nav>
-
-    </div>
-  </header>
-
-
-  <!-- HERO -->
-
-  <main id="trang-chu">
-
-    <div class="container">
-
-      <section class="hero">
-
-        <div class="hero-badge">
-          DQT FLOW • DQT MEDIA
-        </div>
-
-        <h1>
-          Truyền thông số
-          <span>tự động hóa</span>
-        </h1>
-
-        <p>
-          DQT Media là hệ thống quản lý, sản xuất và phân phối
-          nội dung số trong hệ sinh thái DQT Flow.
-        </p>
-
-        <a href="#bai-viet" class="hero-button">
-          Xem bài viết
-        </a>
-
-      </section>
-
-    </div>
-
-
-    <!-- POSTS -->
-
-    <section class="section" id="bai-viet">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <h2>Bài viết mới</h2>
-
-          <p>
-            Các nội dung đã được duyệt và tự động cập nhật
-            từ hệ thống DQT Media.
-          </p>
-
-        </div>
-
-        <div id="dqt-posts-list">
-
-          <div class="loading">
-            Đang tải bài viết...
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="section" id="gioi-thieu">
-
-      <div class="container">
-
-        <div class="about-box">
-
-          <h2>DQT Media</h2>
-
-          <p>
-            Hệ thống truyền thông và nội dung số thuộc hệ sinh thái
-            DQT Flow, hướng tới kết nối công nghệ, nội dung,
-            quản lý và tự động hóa trên nhiều nền tảng.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer>
+    </h1>
 
     <p>
-      © <span id="current-year"></span>
-      <strong>DQT Flow - DQT Media</strong>
+        Xây dựng hệ thống truyền thông và nội dung số
+        trong hệ sinh thái DQT Flow, kết nối website,
+        Facebook, YouTube, TikTok và các nền tảng số.
     </p>
 
-  </footer>
+</section>
 
 
-  <!-- SCRIPT -->
+<div id="page-content">
 
-  <script>
+    <section class="section">
 
-    const GITHUB_OWNER = "dqtflow";
-    const GITHUB_REPO = "dqtflow.github.io";
-    const GITHUB_BRANCH = "main";
-    const POSTS_PATH = "posts";
+        <div class="loading">
+            Đang tải nội dung...
+        </div>
 
+    </section>
 
-    /* HIỆN NĂM */
-
-    document.getElementById("current-year").textContent =
-      new Date().getFullYear();
+</div>
 
 
-    /* ESCAPE HTML */
+<section class="cta">
 
-    function escapeHTML(value) {
+    <h2>
+        Kết nối để tạo nên dòng chảy số
+    </h2>
 
-      if (!value) {
-        return "";
-      }
+    <p>
+        DQT Media là một thành phần trong hệ sinh thái
+        DQT Flow, hướng tới kết nối công nghệ, nội dung
+        và tự động hóa.
+    </p>
 
-      return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+    <a class="button" href="index.html">
+        Quay về DQT Flow
+    </a>
+
+</section>
+
+
+<footer>
+
+    © 2026 DQT Flow - DQT Media
+
+</footer>
+
+
+<script>
+
+const API_URL =
+    "https://api.github.com/repos/dqtflow/dqtflow.github.io/contents/posts";
+
+
+const pageContent =
+    document.getElementById("page-content");
+
+
+/* ================================
+   HÀM CHỐNG HTML ĐỘC
+================================ */
+
+function escapeHtml(text){
+
+    const div = document.createElement("div");
+
+    div.textContent = text || "";
+
+    return div.innerHTML;
+}
+
+
+/* ================================
+   CHUYỂN MARKDOWN CƠ BẢN
+================================ */
+
+function markdownToHtml(markdown){
+
+    let html = escapeHtml(markdown);
+
+    html = html.replace(
+        /^### (.*)$/gm,
+        "<h3>$1</h3>"
+    );
+
+    html = html.replace(
+        /^## (.*)$/gm,
+        "<h2>$1</h2>"
+    );
+
+    html = html.replace(
+        /^# (.*)$/gm,
+        "<h1>$1</h1>"
+    );
+
+    html = html.replace(
+        /\*\*(.*?)\*\*/g,
+        "<strong>$1</strong>"
+    );
+
+    html = html.replace(
+        /^\- (.*)$/gm,
+        "<li>$1</li>"
+    );
+
+    html = html.replace(
+        /(<li>.*<\/li>)/gs,
+        "<ul>$1</ul>"
+    );
+
+    html = html.replace(
+        /\n{2,}/g,
+        "</p><p>"
+    );
+
+    html = "<p>" + html + "</p>";
+
+    html = html.replace(
+        /<p>(<h[1-3]>)/g,
+        "$1"
+    );
+
+    html = html.replace(
+        /(<\/h[1-3]>)<\/p>/g,
+        "$1"
+    );
+
+    html = html.replace(
+        /<p>(<ul>)/g,
+        "$1"
+    );
+
+    html = html.replace(
+        /(<\/ul>)<\/p>/g,
+        "$1"
+    );
+
+    return html;
+}
+
+
+/* ================================
+   LẤY DANH SÁCH BÀI VIẾT
+================================ */
+
+async function getPosts(){
+
+    const response = await fetch(
+        API_URL + "?ts=" + Date.now(),
+        {
+            cache:"no-store"
+        }
+    );
+
+    if(!response.ok){
+
+        throw new Error(
+            "Không thể kết nối GitHub API"
+        );
     }
 
+    const files = await response.json();
 
-    /* ĐỌC THÔNG TIN TỪ FILE MARKDOWN */
-
-    function parseMarkdown(text, filename) {
-
-      const lines = text.split(/\r?\n/);
-
-      let title = "";
-      let topic = "";
-      let date = "";
+    return files.filter(
+        file =>
+            file.type === "file" &&
+            file.name.toLowerCase().endsWith(".md")
+    );
+}
 
 
-      for (const line of lines) {
+/* ================================
+   ĐỌC NỘI DUNG 1 FILE MARKDOWN
+================================ */
 
-        const titleMatch =
-          line.match(/^#\s+(.+)$/);
+async function getPost(file){
 
-        if (titleMatch) {
-          title = titleMatch[1].trim();
-          break;
+    const response = await fetch(
+        file.download_url + "?ts=" + Date.now(),
+        {
+            cache:"no-store"
+        }
+    );
+
+    if(!response.ok){
+
+        throw new Error(
+            "Không thể đọc bài viết"
+        );
+    }
+
+    return await response.text();
+}
+
+
+/* ================================
+   LẤY THÔNG TIN BÀI VIẾT
+================================ */
+
+function parsePost(text,file){
+
+    const title =
+        (text.match(/^#\s+(.+)$/m) || ["",""])[1]
+        || file.name.replace(".md","");
+
+    const topic =
+        (text.match(/^\*\*Chủ đề:\*\*\s*(.+)$/m) || ["",""])[1]
+        || "";
+
+    const date =
+        (text.match(/^\*\*Ngày tạo:\*\*\s*(.+)$/m) || ["",""])[1]
+        || "";
+
+    const source =
+        (text.match(/^\*\*Nguồn:\*\*\s*(.+)$/m) || ["",""])[1]
+        || "";
+
+    const status =
+        (text.match(/^\*\*Trạng thái:\*\*\s*(.+)$/m) || ["",""])[1]
+        || "";
+
+    const approvedBy =
+        (text.match(/^\*\*Người duyệt:\*\*\s*(.*)$/m) || ["",""])[1]
+        || "";
+
+    const approvedDate =
+        (text.match(/^\*\*Ngày duyệt:\*\*\s*(.*)$/m) || ["",""])[1]
+        || "";
+
+    const publishedDate =
+        (text.match(/^\*\*Ngày đăng:\*\*\s*(.*)$/m) || ["",""])[1]
+        || "";
+
+    const note =
+        (text.match(/^\*\*Ghi chú:\*\*\s*(.*)$/m) || ["",""])[1]
+        || "";
+
+    let content = text;
+
+    const contentMarker = "## Nội dung";
+
+    if(content.includes(contentMarker)){
+
+        content =
+            content.split(contentMarker)[1];
+
+        if(content.includes("## Ghi chú")){
+
+            content =
+                content.split("## Ghi chú")[0];
         }
 
-      }
+    }
 
+    return {
 
-      const topicMatch =
-        text.match(
-          /^\*\*Chủ đề:\*\*\s*(.+)$/mi
-        );
-
-      if (topicMatch) {
-        topic = topicMatch[1].trim();
-      }
-
-
-      const dateMatch =
-        text.match(
-          /^\*\*Ngày tạo:\*\*\s*(.+)$/mi
-        );
-
-      if (dateMatch) {
-        date = dateMatch[1].trim();
-      }
-
-
-      if (!title) {
-
-        title = filename
-          .replace(/\.md$/i, "")
-          .replace(/[-_]+/g, " ")
-          .replace(/\b\w/g, char => char.toUpperCase());
-
-      }
-
-
-      if (!topic) {
-        topic = "Nội dung số";
-      }
-
-
-      if (!date) {
-        date = "DQT Media";
-      }
-
-
-      return {
         title,
         topic,
-        date
-      };
+        date,
+        source,
+        status,
+        approvedBy,
+        approvedDate,
+        publishedDate,
+        note,
+        content,
+        fileName:file.name,
+        path:file.path,
+        htmlUrl:file.html_url
 
-    }
+    };
+}
 
 
-    /* TẢI DANH SÁCH BÀI VIẾT */
+/* ================================
+   TRANG DANH SÁCH BÀI VIẾT
+================================ */
 
-    async function loadDQTPosts() {
+async function showPostList(){
 
-      const box =
+    pageContent.innerHTML = `
+
+        <section class="section">
+
+            <h2>Bài viết mới</h2>
+
+            <p class="section-intro">
+                Các nội dung đã được duyệt và tự động
+                cập nhật từ hệ thống DQT Media.
+            </p>
+
+            <div
+                class="cards"
+                id="dqt-posts-list">
+            </div>
+
+        </section>
+
+    `;
+
+    const box =
         document.getElementById("dqt-posts-list");
 
+    try{
 
-      try {
+        const files = await getPosts();
 
-        const apiURL =
-          "https://api.github.com/repos/" +
-          GITHUB_OWNER +
-          "/" +
-          GITHUB_REPO +
-          "/contents/" +
-          POSTS_PATH +
-          "?ref=" +
-          GITHUB_BRANCH +
-          "&t=" +
-          Date.now();
+        if(files.length === 0){
 
+            box.innerHTML =
+                "<p>Chưa có bài viết.</p>";
 
-        const response =
-          await fetch(
-            apiURL,
-            {
-              cache: "no-store"
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            "GitHub API HTTP " +
-            response.status
-          );
-
+            return;
         }
 
 
-        const files =
-          await response.json();
+        const posts = [];
 
 
-        const mdFiles =
-          files.filter(
-            file =>
-              file.type === "file" &&
-              /\.md$/i.test(file.name)
-          );
+        for(const file of files){
 
+            try{
 
-        if (mdFiles.length === 0) {
+                const text =
+                    await getPost(file);
 
-          box.innerHTML = `
-            <div class="message">
-              Chưa có bài viết mới.
-            </div>
-          `;
+                const post =
+                    parsePost(text,file);
 
-          return;
+                posts.push(post);
 
-        }
+            }catch(error){
 
-
-        const posts =
-          await Promise.all(
-
-            mdFiles.map(
-              async file => {
-
-                try {
-
-                  const rawURL =
-                    "https://raw.githubusercontent.com/" +
-                    GITHUB_OWNER +
-                    "/" +
-                    GITHUB_REPO +
-                    "/" +
-                    GITHUB_BRANCH +
-                    "/" +
-                    POSTS_PATH +
-                    "/" +
-                    encodeURIComponent(file.name) +
-                    "?t=" +
-                    Date.now();
-
-
-                  const response =
-                    await fetch(
-                      rawURL,
-                      {
-                        cache: "no-store"
-                      }
-                    );
-
-
-                  if (!response.ok) {
-                    return null;
-                  }
-
-
-                  const text =
-                    await response.text();
-
-
-                  const info =
-                    parseMarkdown(
-                      text,
-                      file.name
-                    );
-
-
-                  return {
-
-                    ...info,
-
-                    filename: file.name,
-
-                    url:
-                      "https://github.com/" +
-                      GITHUB_OWNER +
-                      "/" +
-                      GITHUB_REPO +
-                      "/blob/" +
-                      GITHUB_BRANCH +
-                      "/" +
-                      POSTS_PATH +
-                      "/" +
-                      encodeURIComponent(file.name)
-
-                  };
-
-                }
-
-                catch (error) {
-
-                  console.error(
-                    "Lỗi đọc file:",
+                console.error(
+                    "Không đọc được:",
                     file.name,
                     error
-                  );
+                );
 
-                  return null;
+            }
 
-                }
-
-              }
-            )
-
-          );
+        }
 
 
-        const validPosts =
-          posts.filter(Boolean);
+        /* Sắp xếp bài mới nhất trước */
 
-
-        /* BÀI MỚI NHẤT LÊN TRƯỚC */
-
-        validPosts.sort(
-          (a, b) =>
-            b.filename.localeCompare(
-              a.filename,
-              undefined,
-              {
-                numeric: true
-              }
-            )
+        posts.sort(
+            (a,b) =>
+                new Date(b.date) -
+                new Date(a.date)
         );
 
 
-        box.innerHTML = `
+        box.innerHTML =
+            posts.map(post => `
 
-          <div class="posts-grid">
+                <div class="card">
 
-            ${validPosts.map(post => `
+                    <span class="post-code">
+                        ${escapeHtml(
+                            post.fileName
+                                .replace(".md","")
+                        )}
+                    </span>
 
-              <article class="post-card">
+                    <h3>
+                        ${escapeHtml(post.title)}
+                    </h3>
 
-                <div class="post-code">
-                  ${escapeHTML(post.filename.replace(".md", ""))}
+                    <p>
+                        <strong>Chủ đề:</strong>
+                        ${escapeHtml(post.topic)}
+                    </p>
+
+                    <p>
+                        <strong>Ngày tạo:</strong>
+                        ${escapeHtml(post.date)}
+                    </p>
+
+                    <a
+                        class="button"
+                        href="dqt-media.html?post=${encodeURIComponent(
+                            post.fileName
+                        )}">
+                        Xem bài viết
+                    </a>
+
                 </div>
 
-                <h3>
-                  ${escapeHTML(post.title)}
-                </h3>
+            `).join("");
 
-                <div class="post-info">
-                  <strong>Chủ đề:</strong>
-                  ${escapeHTML(post.topic)}
-                </div>
+    }catch(error){
 
-                <div class="post-info">
-                  <strong>Ngày tạo:</strong>
-                  ${escapeHTML(post.date)}
-                </div>
-
-                <a
-                  class="post-button"
-                  href="${post.url}"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Xem bài viết
-                </a>
-
-              </article>
-
-            `).join("")}
-
-          </div>
-
-        `;
-
-      }
-
-      catch (error) {
-
-        console.error(
-          "DQT Media:",
-          error
-        );
-
+        console.error(error);
 
         box.innerHTML = `
 
-          <div class="error">
-
-            <strong>
-              Không tải được danh sách bài viết.
-            </strong>
-
-            <br><br>
-
-            Vui lòng thử tải lại trang sau.
-
-          </div>
+            <div class="error">
+                Không tải được danh sách bài viết.
+            </div>
 
         `;
-
-      }
 
     }
 
+}
 
-    /* CHẠY */
 
-    loadDQTPosts();
+/* ================================
+   TRANG CHI TIẾT BÀI VIẾT
+================================ */
 
-  </script>
+async function showPostDetail(fileName){
+
+    pageContent.innerHTML = `
+
+        <section class="section">
+
+            <div class="loading">
+                Đang tải bài viết...
+            </div>
+
+        </section>
+
+    `;
+
+
+    try{
+
+        const response = await fetch(
+
+            API_URL +
+            "/" +
+            encodeURIComponent(fileName) +
+            "?ts=" +
+            Date.now(),
+
+            {
+                cache:"no-store"
+            }
+
+        );
+
+
+        if(!response.ok){
+
+            throw new Error(
+                "Không tìm thấy bài viết"
+            );
+
+        }
+
+
+        const file =
+            await response.json();
+
+
+        const text =
+            await getPost(file);
+
+
+        const post =
+            parsePost(text,file);
+
+
+        pageContent.innerHTML = `
+
+            <section class="section">
+
+                <a
+                    class="back-button"
+                    href="dqt-media.html">
+                    ← Quay lại danh sách bài viết
+                </a>
+
+                <article class="article">
+
+                    <h1>
+                        ${escapeHtml(post.title)}
+                    </h1>
+
+                    <div class="article-meta">
+
+                        <div>
+                            <strong>Chủ đề:</strong>
+                            ${escapeHtml(post.topic)}
+                        </div>
+
+                        <div>
+                            <strong>Ngày tạo:</strong>
+                            ${escapeHtml(post.date)}
+                        </div>
+
+                        <div>
+                            <strong>Nguồn:</strong>
+                            ${escapeHtml(post.source)}
+                        </div>
+
+                        <div>
+                            <strong>Trạng thái:</strong>
+                            ${escapeHtml(post.status)}
+                        </div>
+
+                        ${
+                            post.approvedDate
+                            ? `
+                            <div>
+                                <strong>Ngày duyệt:</strong>
+                                ${escapeHtml(
+                                    post.approvedDate
+                                )}
+                            </div>
+                            `
+                            : ""
+                        }
+
+                    </div>
+
+
+                    <div class="article-content">
+
+                        ${markdownToHtml(post.content)}
+
+                    </div>
+
+
+                    ${
+                        post.note
+                        ? `
+                        <div class="article-footer">
+
+                            <strong>Ghi chú:</strong>
+
+                            ${escapeHtml(post.note)}
+
+                        </div>
+                        `
+                        : ""
+                    }
+
+
+                    <div class="article-footer">
+
+                        <a
+                            class="button"
+                            href="dqt-media.html">
+                            ← Danh sách bài viết
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        `;
+
+    }catch(error){
+
+        console.error(error);
+
+        pageContent.innerHTML = `
+
+            <section class="section">
+
+                <div class="error">
+
+                    <h2>
+                        Không tải được bài viết
+                    </h2>
+
+                    <p>
+                        Bài viết không tồn tại hoặc
+                        GitHub chưa phản hồi.
+                    </p>
+
+                    <br>
+
+                    <a
+                        class="button"
+                        href="dqt-media.html">
+                        Quay lại DQT Media
+                    </a>
+
+                </div>
+
+            </section>
+
+        `;
+
+    }
+
+}
+
+
+/* ================================
+   KHỞI ĐỘNG
+================================ */
+
+async function loadDQTMedia(){
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+    const post =
+        params.get("post");
+
+
+    if(post){
+
+        await showPostDetail(post);
+
+    }else{
+
+        await showPostList();
+
+    }
+
+}
+
+
+loadDQTMedia();
+
+</script>
 
 </body>
 </html>
